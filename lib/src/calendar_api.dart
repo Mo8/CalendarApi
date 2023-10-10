@@ -2,8 +2,13 @@ import 'package:calendar_api/src/model/calendar.dart';
 import 'package:calendar_api/src/model/event.dart';
 class CalendarApi{
   static Calendar getCalendar(int year,int month){
-    if(month < 1 || month > 12) throw Exception("Month must be between 1 and 12");
-
+    if(month > 12){
+      year += month ~/ 12;
+      month = month % 12;
+    }else if(month < 1){
+      year -= month ~/ 12;
+      month = 12 - month % 12;
+    }
     DateTime dateStart = DateTime(year, month);
     DateTime dateEnd = DateTime(year, month + 1);
 
