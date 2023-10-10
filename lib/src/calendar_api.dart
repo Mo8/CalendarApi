@@ -1,6 +1,10 @@
 import 'package:calendar_api/src/model/calendar.dart';
 import 'package:calendar_api/src/model/event.dart';
 class CalendarApi{
+
+  ///
+  /// Get a calendar for a specific year and month
+  ///
   static Calendar getCalendar(int year,int month){
     if(month < 1 || month > 12) throw Exception("Month must be between 1 and 12");
 
@@ -12,6 +16,9 @@ class CalendarApi{
     return Calendar(days);
   }
 
+  ///
+  /// Add an event to a calendar
+  ///
   static void addEvent(Calendar calendar, Event event){
     if(event.start.isBefore(calendar.days.first) || event.end.isAfter(calendar.days.last)) {
       throw Exception("Event is out of range");
