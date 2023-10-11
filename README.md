@@ -5,7 +5,8 @@ know whether this package might be useful for them.
 
 ## Features
 
-Genarate calendar with events
+- Generate calendar from year and month
+- Add event to calendar
 
 ## Getting started
 
@@ -21,18 +22,19 @@ Add this to your package's pubspec.yaml file in dependencies:
 And then run:
 
 ```bash 
-    flutter pub get
+    dart pub get
 ```
 
 ## Usage
 
 ```dart
-var calendar = CalendarApi.getCalendar(2023, 1);
-print(calendar);
-CalendarApi.addEvent(calendar, Event("RDV", "Petite description", DateTime(2023, 1, 1, 10), DateTime(2023, 1, 1, 11)));
-print(calendar);
+import 'package:calendar_api/calendar_api.dart';
+import 'package:calendar_api/src/model/event.dart';
+
+void main() {
+  var calendar = CalendarApi.getCalendar(2023, 1);
+  print(calendar);
+  CalendarApi.addEvent(calendar, Event("RDV", "Petite description", DateTime(2023, 1, 1, 10), DateTime(2023, 1, 1, 11)));
+  print(calendar);
+}
 ```
-
-## Additional information
-
-install flutter : https://flutter.dev/docs/get-started/install

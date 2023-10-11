@@ -1,5 +1,4 @@
 import 'package:calendar_api/calendar_api.dart';
-import 'package:calendar_api/src/model/event.dart';
 
 void main() {
   var calendar = CalendarApi.getCalendar(2023, 1);
